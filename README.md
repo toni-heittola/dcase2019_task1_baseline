@@ -11,7 +11,7 @@ Author:
 Getting started
 ===============
 
-1. Clone repository from [Github](https://github.com/DCASE-REPO/dcase2019_baseline). 
+1. Clone repository from [Github](https://github.com/toni-heittola/dcase2019_task1_baseline). 
 2. Install requirements with command: `pip install -r requirements.txt`.
 3. Run the subtask specific applications with default settings:
    - Subtask A: `python task1a.py` or  `./task1a.py`
@@ -130,7 +130,7 @@ The system implements a convolutional neural network (CNN) based approach, where
 #### Neural network
 
 - Input shape: 40 * 500 (10 seconds)
-- Architecture (definition for [task1A](https://github.com/DCASE-REPO/dcase2018_baseline/blob/master/task1/task1a.yaml#L141) and for [task1B](https://github.com/DCASE-REPO/dcase2018_baseline/blob/master/task1/task1b.yaml#L148)):
+- Architecture (definition for [task1A](https://github.com/toni-heittola/dcase2019_task1_baseline/blob/master/task1a.yaml#L153), for [task1B](https://github.com/toni-heittola/dcase2019_task1_baseline/blob/master/task1b.yaml#L162), and for [task1C](https://github.com/toni-heittola/dcase2019_task1_baseline/blob/master/task1c.yaml#L151)):
   - CNN layer #1
     - 2D Convolutional layer (filters: 32, kernel size: 7) + Batch normalization + ReLu activation
     - 2D max pooling (pool size: (5, 5)) + Dropout (rate: 30%)
@@ -503,4 +503,4 @@ Changelog
 License
 =======
 
-This software is released under the terms of the [MIT License](https://github.com/DCASE-REPO/dcase2018_baseline/blob/master/LICENSE).
+This software is released under the terms of the [MIT License](https://github.com/toni-heittola/dcase2019_task1_baseline/blob/master/LICENSE).
