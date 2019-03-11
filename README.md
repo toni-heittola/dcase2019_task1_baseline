@@ -3,7 +3,7 @@ DCASE2019 - Task 1 - Baseline systems
 
 Author:
 
-**Toni Heittola**, *Tampere University of Technology* 
+**Toni Heittola**, *Tampere University* 
 [Email](mailto:toni.heittola@tuni.fi), 
 [Homepage](http://www.cs.tut.fi/~heittolt/), 
 [GitHub](https://github.com/toni-heittola)

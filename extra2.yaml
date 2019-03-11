@@ -1,0 +1,20 @@
+active_set: baseline-kernel3
+sets:
+  - set_id: baseline-kernel3
+    description: DCASE2019 baseline with kernel 3
+    learner_method_parameters:
+        cnn:
+          model:
+            constants:
+              CONVOLUTION_KERNEL_SIZE: 3
+          fit:
+            epochs: 100                    
+  - set_id: baseline-kernel5
+    description: DCASE2019 baseline with kernel 5
+    learner_method_parameters:
+        cnn:
+          model:
+            constants:
+              CONVOLUTION_KERNEL_SIZE: 5
+          fit:
+            epochs: 100

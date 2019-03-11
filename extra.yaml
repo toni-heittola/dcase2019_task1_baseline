@@ -1,0 +1,83 @@
+active_set: baseline-minified
+sets:
+  - set_id: baseline-minified
+    description: Minified DCASE2019 baseline
+    learner_method_parameters:
+      cnn:
+        model:
+          constants:
+            CONVOLUTION_KERNEL_SIZE: 3            
+    
+          config:
+            # CNN layer 1
+            # ====================================
+            # Convolution layer
+            - class_name: Conv2D
+              config:
+                input_shape:
+                  - FEATURE_VECTOR_LENGTH   # data_axis
+                  - INPUT_SEQUENCE_LENGTH   # time_axis
+                  - 1                       # sequence_axis
+                filters: 8
+                kernel_size: CONVOLUTION_KERNEL_SIZE
+                padding: CONVOLUTION_BORDER_MODE
+                kernel_initializer: CONVOLUTION_INIT
+                data_format: DATA_FORMAT
+  
+            # Detection layer
+            - class_name: Activation
+              config:
+                activation: CONVOLUTION_ACTIVATION
+  
+            # Pooling layer
+            - class_name: MaxPooling2D
+              config:
+                pool_size:
+                  - 5
+                  - 5
+                data_format: DATA_FORMAT
+  
+            # CNN layer 2
+            # ====================================
+            # Convolution layer
+            - class_name: Conv2D
+              config:
+                filters: 16
+                kernel_size: CONVOLUTION_KERNEL_SIZE
+                padding: CONVOLUTION_BORDER_MODE
+                kernel_initializer: CONVOLUTION_INIT
+                data_format: DATA_FORMAT
+  
+            # Detection layer
+            - class_name: Activation
+              config:
+                activation: CONVOLUTION_ACTIVATION
+  
+            # Pooling layer
+            - class_name: MaxPooling2D
+              config:
+                pool_size:
+                  - 4
+                  - 100
+                data_format: DATA_FORMAT
+  
+            # Flatten
+            # ====================================
+            - class_name: Flatten
+  
+            # Fully connected layer
+            # ====================================
+            - class_name: Dense
+              config:
+                units: 100
+                kernel_initializer: uniform
+                activation: relu
+
+            # Output layer
+            # ====================================
+            - class_name: Dense
+              config:
+                units: CLASS_COUNT
+                kernel_initializer: uniform
+                activation: softmax            
+          
