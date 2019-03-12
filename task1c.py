@@ -837,11 +837,17 @@ def do_testing(db, folds, param, log, overwrite=False):
                 input_data = features.data
 
                 if len(keras_model.input_shape) == 4:
+                    data_format = None
+                    if isinstance(keras_model.get_config(), list):
+                        data_format = keras_model.get_config()[0]['config']['data_format']
+                    elif isinstance(keras_model.get_config(), dict) and 'layers' in keras_model.get_config():
+                        data_format = keras_model.get_config()['layers'][0]['config']['data_format']
+
                     # Add channel
-                    if keras_model.get_config()[0]['config']['data_format'] == 'channels_first':
+                    if data_format == 'channels_first':
                         input_data = numpy.expand_dims(input_data, 0)
 
-                    elif keras_model.get_config()[0]['config']['data_format'] == 'channels_last':
+                    elif data_format == 'channels_last':
                         input_data = numpy.expand_dims(input_data, 3)
 
                 # Get network output
