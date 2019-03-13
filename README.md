@@ -89,7 +89,7 @@ The cross-validation setup provided with the *TAU Urban Acoustic Scenes 2019 Mob
 
 ### Subtask C - Acoustic Scene Classification with use of external data
 
-[TAU Urban Acoustic Scenes 2019 Openset Development dataset]() is used as development
+[TAU Urban Acoustic Scenes 2019 Openset Development dataset](https://zenodo.org/record/2591503) is used as development
 dataset for this task.
 
 The subtask specific baseline system is implemented in file `task1c.py`.
