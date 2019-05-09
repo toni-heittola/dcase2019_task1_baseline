@@ -388,7 +388,8 @@ def main(argv):
                         db=db_eval,
                         folds=active_folds,
                         param=param,
-                        log=log
+                        log=log,
+                        application_mode=application_mode
                     )
 
                     timer.stop()

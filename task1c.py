@@ -880,9 +880,6 @@ def do_testing(db, folds, param, log, overwrite=False):
                     )
 
                 else:
-                    #from IPython import embed
-                    #embed()
-
                     estimated_scene_label = 'unknown'
 
                 # Store result into results container
