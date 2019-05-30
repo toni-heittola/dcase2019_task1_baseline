@@ -230,6 +230,7 @@ def main(argv):
 
                 processed_items = do_testing(
                     db=db,
+                    scene_labels=db.scene_labels(),
                     folds=active_folds,
                     param=param,
                     log=log,
@@ -335,6 +336,7 @@ def main(argv):
 
                 processed_items = do_testing(
                     db=db_eval,
+                    scene_labels=db.scene_labels(),
                     folds=active_folds,
                     param=param,
                     log=log,

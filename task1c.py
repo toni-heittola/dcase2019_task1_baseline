@@ -230,6 +230,7 @@ def main(argv):
 
                 processed_items = do_testing(
                     db=db,
+                    scene_labels=db.scene_labels(),
                     folds=active_folds,
                     param=param,
                     log=log,
@@ -335,6 +336,7 @@ def main(argv):
 
                 processed_items = do_testing(
                     db=db_eval,
+                    scene_labels=db.scene_labels(),
                     folds=active_folds,
                     param=param,
                     log=log,
@@ -731,13 +733,16 @@ def do_learning(db, folds, param, log, overwrite=False):
     return processed_files
 
 
-def do_testing(db, folds, param, log, overwrite=False):
+def do_testing(db, scene_labels, folds, param, log, overwrite=False):
     """Testing stage
 
     Parameters
     ----------
     db : dcase_util.dataset.Dataset
         Dataset
+
+    scene_labels : list of str
+        List of scene labels
 
     folds : list
         List of active folds
@@ -862,7 +867,7 @@ def do_testing(db, folds, param, log, overwrite=False):
 
                 if numpy.sum(frame_decisions[:, 0]) == 1:
                     estimated_scene_label = dcase_util.data.DecisionEncoder(
-                        label_list=db.scene_labels()
+                        label_list=scene_labels
                     ).majority_vote(
                         frame_decisions=frame_decisions
                     )
@@ -874,7 +879,7 @@ def do_testing(db, folds, param, log, overwrite=False):
                         threshold=param.get_path('recognizer.frame_binarization.threshold', 0.5)
                     )
                     estimated_scene_label = dcase_util.data.DecisionEncoder(
-                        label_list=db.scene_labels()
+                        label_list=scene_labels
                     ).majority_vote(
                         frame_decisions=frame_decisions
                     )
