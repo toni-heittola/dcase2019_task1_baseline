@@ -18,6 +18,22 @@ Getting started
    - Subtask B: `python task1b.py` or  `./task1b.py`
    - Subtask C: `python task1c.py` or  `./task1c.py`
 
+### Anaconda installation
+
+To setup Anaconda environment for the system use following:
+
+    conda create --name tf-dcase python
+    conda activate tf-dcase
+    conda install ipython
+    conda install numpy
+    conda install tensorflow-gpu==1.9.0
+    conda install -c anaconda keras-gpu=2.2.2
+    conda install -c anaconda cudatoolkit
+    conda install -c anaconda cudnn
+    conda install librosa
+    pip install dcase_util
+    pip install sed_eval
+
 Introduction
 ============
 
