@@ -22,7 +22,7 @@ Getting started
 
 To setup Anaconda environment for the system use following:
 
-    conda create --name tf-dcase python
+    conda create --name tf-dcase
     conda activate tf-dcase
     conda install ipython
     conda install numpy
